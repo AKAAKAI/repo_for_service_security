@@ -37,9 +37,8 @@ module SubstitutionCipher
     @a = []
     def self.encrypt(document, key)
       # TODO: encrypt string using a permutation cipher
-      @a = (0..127).to_a.shuffle.first(26)
-      nums_a = document.to_s.chars.map { |e| e = @a[(e.ord - 97)].to_i.chr }
-      
+      @a = (0..127).to_a.shuffle(random: Random.new(key))
+      nums_a = document.to_s.chars.map { |e| e = @a[e.ord].to_i.chr }
       return nums_a.join()
     end
 
@@ -50,17 +49,8 @@ module SubstitutionCipher
     # Returns: String
     def self.decrypt(document, key)
       # TODO: decrypt string using a permutation cipher
-      puts "===="
-      puts document
-      puts "===="
-      nums_a = document.to_s.chars.map { |e| e = (@a.index(e).to_i + 97).chr }
-      
-      
-
-      
-      
-      
-      
+      nums_a = document.to_s.chars.map { |e| e = (@a.index(e.ord).to_i).chr }
+      return nums_a.join().to_s
     end
   end
 end
