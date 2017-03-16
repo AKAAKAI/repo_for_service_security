@@ -37,11 +37,6 @@ describe 'Test card info encryption' do
     end
   end
 
-  # TODO: Add tests for double transposition and AES ciphers
-  #       Can you DRY out the tests using metaprogramming? (see lecture slide)
-
-  # TODO: Add tests for double transposition and AES ciphers
-  #       Can you DRY out the tests using metaprogramming? (see lecture slide)
   describe 'Using Double transposition cipher' do
     it 'should encrypt card information' do
       enc = DoubleTranspositionCipher.encrypt(@cc, @key)
