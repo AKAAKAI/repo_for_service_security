@@ -13,7 +13,8 @@ module DoubleTranspositionCipher
     matrix = ciphertext.to_s.chars.each_slice(m_size).to_a
     col_order = (0..m_size - 1).to_a.shuffle(random: Random.new(key))
     row_order = (0..matrix.length - 1).to_a.shuffle(random: Random.new(key))
-    matrix_columns_de(matrix, col_order, row_order).join.to_s.strip
+    matrix_columns_de = matrix_columns_de(matrix, col_order, row_order).join.to_s.strip
+    matrix_columns_de
   end
 
   def self.ceil(text)
