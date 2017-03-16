@@ -42,5 +42,4 @@ module DoubleTranspositionCipher
     end
     m_c
   end
-  
 end
