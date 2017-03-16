@@ -42,6 +42,7 @@ module DoubleTranspositionCipher
     row_order.each_with_index do |var, index|
       newmat[var] = mat[index]
     end
+    newmat
     # TODO: FILL THIS IN!
   end
 end
