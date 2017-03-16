@@ -23,8 +23,6 @@ module DoubleTranspositionCipher
   end
 
   def self.decrypt(ciphertext, key)
-    ciphertext = 'something'
-    key = 55
     test = ciphertext.chars
     m_size = Math.sqrt(test.length).ceil
     mat = test.each_slice(m_size).to_a
