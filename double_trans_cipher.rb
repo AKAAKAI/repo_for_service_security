@@ -19,10 +19,12 @@ module DoubleTranspositionCipher
       end
       newmat[col_index] = temp
     end
-    newmat
+    newmat.join
   end
 
   def self.decrypt(ciphertext, key)
+    ciphertext = 'something'
+    key = 55
     test = ciphertext.chars
     m_size = Math.sqrt(test.length).ceil
     mat = test.each_slice(m_size).to_a
@@ -42,7 +44,6 @@ module DoubleTranspositionCipher
     row_order.each_with_index do |var, index|
       newmat[var] = mat[index]
     end
-    newmat
-    # TODO: FILL THIS IN!
+    newmat.join
   end
 end
