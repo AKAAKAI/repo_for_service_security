@@ -1,8 +1,6 @@
 # This module is for double transposition
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
-    # document = 'attackatdawn' # {testing stuff}
-    # key = 55 # hard coded stuff remove later!
     test = document.chars
     m_size = Math.sqrt(test.length).ceil
     mat = test.each_slice(m_size).to_a
@@ -25,8 +23,6 @@ module DoubleTranspositionCipher
   end
 
   def self.decrypt(ciphertext, key)
-    ciphertext = 'dnwaaattctak'
-    key = 55
     test = ciphertext.chars
     m_size = Math.sqrt(test.length).ceil
     mat = test.each_slice(m_size).to_a
