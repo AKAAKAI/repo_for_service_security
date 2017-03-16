@@ -1,12 +1,28 @@
 module DoubleTranspositionCipher
   def self.encrypt(document, key)
-    # TODO: FILL THIS IN!
-    ## Suggested steps for double transposition cipher
-    # 1. find number of rows/cols such that matrix is almost square
-    # 2. break plaintext into evenly sized blocks
-    # 3. sort rows in predictibly random way using key as seed
-    # 4. sort columns of each row in predictibly random way
-    # 5. return joined cyphertext
+    # document = 'attackatdawn' # {testing stuff}
+    # key = 55 # hard coded stuff remove later!
+    test = document.chars
+    m_size = Math.sqrt(test.length).ceil
+    mat = test.each_slice(m_size).to_a
+    col_order = (0..m_size - 1).to_a.shuffle(random: Random.new(key))
+    row_order = (0..mat.length - 1).to_a.shuffle(random: Random.new(key))
+    # create new array with rows in new order
+    newmat = Array.new(mat.length)
+    row_order.each_with_index do |var, index|
+      newmat[index] = mat[var]
+    end
+    # move columns to new position
+    newmat.each_with_index do |row, col_index|
+      temp = []
+      col_order.each_with_index do |sequence, index|
+        temp[index] = row[sequence]
+      end
+      newmat[col_index] = temp
+      puts temp
+      # puts "this itaration row = #{row}"
+    end
+    newmat
   end
 
   def self.decrypt(ciphertext, key)
